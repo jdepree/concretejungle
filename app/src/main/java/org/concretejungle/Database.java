@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Database extends SQLiteOpenHelper {
+public class Database/* extends SQLiteOpenHelper */{
     private static final String DB_NAME = "arena.sqlite";
     private static final int DB_VERSION = 1;
 
@@ -20,7 +20,7 @@ public class Database extends SQLiteOpenHelper {
 
     public static final String COLUMN_TREE_TYPE_ID = "tt_id";
 
-
+/*
     public Database(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -89,4 +89,5 @@ public class Database extends SQLiteOpenHelper {
 
         return db.insert(TABLE_TREE, null, values);
     }
+    */
 }
