@@ -6,6 +6,12 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+<<<<<<< HEAD
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/title_activity_map" >
+=======
         android:theme="@style/AppTheme"
         android:screenOrientation="portrait"
         >
@@ -24,6 +30,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             >
+>>>>>>> recovered_stuff
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +43,11 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
+<<<<<<< HEAD
             android:value="YOUR API KEY HERE" />
+=======
+            android:value="AIzaSyCjEiFjbjfItvoflPevrZtTBqvJg86pr8E" />
+>>>>>>> recovered_stuff
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

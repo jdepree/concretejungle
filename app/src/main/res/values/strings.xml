@@ -4,4 +4,13 @@
     <string name="app_name">Concrete Jungle</string>
     <string name="title_activity_map">Concrete Jungle</string>
 
+    <string name="search_origin">Origin (Leave blank to jump to destination)</string>
+    <string name="search_destination">Going somewhere?</string>
+    <string name="search_destination_replacement">Destination</string>
+    <string name="menu_filter">Filter Trees</string>
+
+    <string name="filter_title">Select Types of Trees</string>
+    <string name="filter_show_all">Show All</string>
+    <string name="filter_hide_all">Hide All</string>
+
 </resources>
