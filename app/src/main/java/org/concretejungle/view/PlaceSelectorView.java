@@ -75,7 +75,7 @@ public class PlaceSelectorView extends AutoCompleteTextView {
                 protected FilterResults performFiltering(CharSequence constraint) {
                     FilterResults filterResults = new Filter.FilterResults();
                     if (constraint != null) {
-                        resultList = MapUtils.autocomplete(constraint.toString(), mCenter, mRadius);
+                        resultList = MapUtils.autocomplete(getContext(), constraint.toString(), mCenter, mRadius);
                         filterResults.values = resultList;
                         filterResults.count = resultList.size();
                     }
@@ -105,7 +105,7 @@ public class PlaceSelectorView extends AutoCompleteTextView {
             String placeId = locationInfo[0];
             String placeName = locationInfo[1];
 
-            return MapUtils.getPlaceDetails(placeId, placeName);
+            return MapUtils.getPlaceDetails(getContext(), placeId, placeName);
         }
 
         @Override

@@ -20,7 +20,6 @@ import com.parse.ParseQuery;
 import org.concretejungle.R;
 import org.concretejungle.model.Tree;
 import org.concretejungle.model.TreeType;
-import org.concretejungle.model.data.Constants;
 import org.concretejungle.model.data.LocationStore;
 import org.concretejungle.model.data.TreeStore;
 
@@ -43,7 +42,7 @@ public class SplashActivity extends Activity implements GoogleApiClient.Connecti
 
         setContentView(R.layout.activity_splash_screen);
 
-        Parse.initialize(this, Constants.PARSE_APP_ID, Constants.PARSE_CLIENT_KEY);
+        Parse.initialize(this, getString(R.string.PARSE_APP_ID), getString(R.string.PARSE_CLIENT_KEY));
         downloadBackgroundData();
 
         SharedPreferences prefStore = getSharedPreferences(HomeActivity.PREF_STORE_NAME, MODE_PRIVATE);

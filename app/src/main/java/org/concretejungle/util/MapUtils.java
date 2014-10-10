@@ -1,11 +1,12 @@
 package org.concretejungle.util;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 
-import org.concretejungle.model.data.Constants;
+import org.concretejungle.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,7 +30,6 @@ public class MapUtils {
     public static final int DEFAULT_MAP_RADIUS = 50000;
 
     private static final String LOG_TAG = "MapUtils";
-    private static final String API_KEY = Constants.GOOGLE_API_KEY;
     private static final String PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place";
     private static final String GEOCODE_API_BASE = "https://maps.googleapis.com/maps/api/geocode";
     private static final String DIRECTIONS_API_BASE = "https://maps.googleapis.com/maps/api/directions";
@@ -60,10 +60,10 @@ public class MapUtils {
         return url;
     }
 
-    public static final List<String> reverseGeocode(LatLng point) {
+    public static final List<String> reverseGeocode(Context context, LatLng point) {
         String geocodingUrl = GEOCODE_API_BASE + OUT_JSON + "?latlng="
                 + point.latitude + "," + point.longitude
-                + "&key=" + API_KEY;
+                + "&key=" + context.getResources().getString(R.string.GOOGLE_API_KEY);
 
         String jsonResults = getJson(geocodingUrl);
         List<String> resultList = null;
@@ -81,11 +81,11 @@ public class MapUtils {
         return resultList;
     }
 
-    public static ArrayList<LocationWithId> autocomplete(String input, LatLng center, int radius) {
+    public static ArrayList<LocationWithId> autocomplete(Context context, String input, LatLng center, int radius) {
         ArrayList<LocationWithId> resultList = null;
 
         StringBuilder sb = new StringBuilder(PLACES_API_BASE + TYPE_AUTOCOMPLETE + OUT_JSON);
-        sb.append("?key=" + API_KEY);
+        sb.append("?key=" + context.getResources().getString(R.string.GOOGLE_API_KEY));
         sb.append("&components=country:us");
         if (center != null) {
             sb.append("&location=" + center.latitude + "," + center.longitude);
@@ -113,9 +113,9 @@ public class MapUtils {
         return resultList;
     }
 
-    public static LatLng getPlaceDetails(String placeId, String placeName) {
+    public static LatLng getPlaceDetails(Context context, String placeId, String placeName) {
         StringBuilder sb = new StringBuilder(PLACES_API_BASE + TYPE_DETAILS + OUT_JSON);
-        sb.append("?key=" + API_KEY);
+        sb.append("?key=" + context.getResources().getString(R.string.GOOGLE_API_KEY));
         sb.append("&placeid=" + placeId);
         String jsonResults = getJson(sb.toString());
 
